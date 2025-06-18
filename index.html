@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Simple Single Page Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+
+        nav {
+            background: #333;
+            padding: 1em;
+            text-align: center;
+        }
+
+        nav button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1em;
+            margin: 0 15px;
+            cursor: pointer;
+        }
+
+        nav button:hover {
+            color: #ffd700;
+        }
+
+        section {
+            display: none;
+            padding: 2em;
+            background: white;
+            max-width: 800px;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        section.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <button onclick="showSection('home')">Home</button>
+        <button onclick="showSection('about')">About</button>
+        <button onclick="showSection('contact')">Contact</button>
+    </nav>
+
+    <section id="home" class="active">
+        <h1>Welcome to My Website</h1>
+        <p>This is the home section.</p>
+    </section>
+
+    <section id="about">
+        <h1>About Us</h1>
+        <p>This is a simple single-page site using HTML, CSS, and JavaScript.</p>
+    </section>
+
+    <section id="contact">
+        <h1>Contact Us</h1>
+        <form>
+            <label>Name:</label><br />
+            <input type="text" required /><br />
+            <label>Email:</label><br />
+            <input type="email" required /><br />
+            <label>Message:</label><br />
+            <textarea required></textarea><br />
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <script>
+        function showSection(id) {
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(id).classList.add('active');
+        }
+    </script>
+
+</body>
+
+</html>
